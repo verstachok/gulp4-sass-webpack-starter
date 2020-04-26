@@ -1,0 +1,76 @@
+@import "variables.scss";
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin icon-style($width, $height, $color) {
+  width: $width;
+  height: $height;
+  fill: $color;
+}
+
+@mixin icon-stroke($width, $height, $strokeColor) {
+  width: $width;
+  height: $height;
+  fill: transparent;
+  stroke: $strokeColor;
+}
+
+@mixin link-icon-effects($colorHover, $colorActive, $colorFocus) {
+  &:hover svg {
+    fill: $colorHover;
+  }
+
+  &:active svg {
+    fill: $colorActive;
+  }
+
+  &:focus svg {
+    fill: $colorFocus;
+  }
+}
+
+
+/* Retina */
+
+$double-dpr: 1.5;
+$double-dpi: 144dpi;
+$double-dpx: 1.5dppx;
+
+@mixin pixel-ratio($retina) {
+  @if $retina=="double" {
+    @media (min-device-pixel-ratio: $double-dpr), (min-resolution: $double-dpi), (min-resolution: $double-dpx) {
+      @content;
+    }
+  }
+}
+
+
+/* Media */
+
+@mixin media-lg {
+  @media (max-width: $media-lg) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media (max-width: $media-md) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media (max-width: $media-sm) {
+    @content;
+  }
+}
+
+@mixin media-xs {
+  @media (max-width: $media-xs) {
+    @content;
+  }
+}

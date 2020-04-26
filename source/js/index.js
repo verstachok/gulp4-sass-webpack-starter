@@ -1,0 +1,1 @@
+import devide from './test';
